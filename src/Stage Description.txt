@@ -1,1 +1,1 @@
-In this stage the player is introduced and a structure is made to manage the stages (StageManager). The functions needed for user imputs is laid out aswell.
+In this stage Keys and KeyManager are added, to provide a smooth user interface which will cause action every 500ms after a key has been held down, and every time a key is pressed the action occurs. The player can now fire bullets down the tube (stage).

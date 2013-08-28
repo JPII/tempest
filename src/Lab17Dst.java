@@ -14,12 +14,13 @@ public class Lab17Dst
 	}
 }
 
-class AppWindow extends Frame
+class AppWindow extends Frame implements KeyListener
 {
 	private final int MAXX = 1000;
 	private final int MAXY = 650;
 
 	StageManager sm;
+	KeyManager km;
 	private Graphics gBuffer;
     private Image virtualMem;
 	private boolean gameConstructed = false;
@@ -27,11 +28,13 @@ class AppWindow extends Frame
 	public AppWindow()
 	{
 		super("Lab17D");
+		addKeyListener(this);
 		setSize(MAXX+18,MAXY+45);
 		show();
 		virtualMem = createImage(MAXX+18,MAXY+45);
 		gBuffer = virtualMem.getGraphics();
 		sm = new StageManager(gBuffer);
+		km = new KeyManager(sm);
 		gameConstructed = true;
 		repaint();
 	}
@@ -43,6 +46,8 @@ class AppWindow extends Frame
 
 		if (gameConstructed)
 		{
+			km.tick();
+
 			drawBackground(gBuffer);
 
 			sm.drawStage();
@@ -63,4 +68,9 @@ class AppWindow extends Frame
 	{
 		paint(g);
 	}
+
+	public void keyReleased(KeyEvent k){ km.removeKey(k.getKeyCode()); }
+	public void keyPressed(KeyEvent k){ km.addKey(k.getKeyCode()); }
+	public void keyTyped(KeyEvent k){ }
+
 }
