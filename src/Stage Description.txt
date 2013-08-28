@@ -1,1 +1,1 @@
-"Starting files" - rotating object in paint method
+The 3D object is rotated to another orientation, and is moved to a stage class.
