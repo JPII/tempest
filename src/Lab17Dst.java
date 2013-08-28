@@ -16,6 +16,7 @@ public class Lab17Dst
 
 class AppWindow extends Frame implements KeyListener
 {
+	private static final long serialVersionUID = 1L;
 	private final int MAXX = 1000;
 	private final int MAXY = 650;
 
@@ -30,7 +31,7 @@ class AppWindow extends Frame implements KeyListener
 		super("Lab17D");
 		addKeyListener(this);
 		setSize(MAXX+18,MAXY+45);
-		show();
+		setVisible(true);
 		virtualMem = createImage(MAXX+18,MAXY+45);
 		gBuffer = virtualMem.getGraphics();
 		sm = new StageManager(gBuffer);

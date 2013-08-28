@@ -25,11 +25,6 @@
  *
  */
 
-
-import java.awt.*;
-import java.awt.event.*;
-
-
 class Point3D
 {
 	private static int maxWidth    = 1000;
