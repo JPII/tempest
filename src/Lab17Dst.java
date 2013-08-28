@@ -19,7 +19,7 @@ class AppWindow extends Frame
 	private final int MAXX = 1000;
 	private final int MAXY = 650;
 
-	Stage1 s;
+	StageManager sm;
 	private Graphics gBuffer;
     private Image virtualMem;
 	private boolean gameConstructed = false;
@@ -31,7 +31,7 @@ class AppWindow extends Frame
 		show();
 		virtualMem = createImage(MAXX+18,MAXY+45);
 		gBuffer = virtualMem.getGraphics();
-		s = new Stage1(gBuffer);
+		sm = new StageManager(gBuffer);
 		gameConstructed = true;
 		repaint();
 	}
@@ -45,7 +45,7 @@ class AppWindow extends Frame
 		{
 			drawBackground(gBuffer);
 
-			s.drawObject();
+			sm.drawStage();
 
 			g.drawImage (virtualMem,0,0,this);
 			Util.delay(20);

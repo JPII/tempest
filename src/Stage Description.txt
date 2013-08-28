@@ -1,1 +1,1 @@
-The 3D object is rotated to another orientation, and is moved to a stage class.
+In this stage the player is introduced and a structure is made to manage the stages (StageManager). The functions needed for user imputs is laid out aswell.

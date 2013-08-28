@@ -1,13 +1,9 @@
 import java.awt.*;
 
-public class Stage1{
-
-	protected final double twoPI = Math.PI * 2;
-	protected int pos;
-	protected Graphics3D object;
+public class Stage1 extends Stage{
 
 	public Stage1(Graphics g){
-		object = new Graphics3D(g);
+		super(g);
 		pos = 12;
 		for (double rad = 0; twoPI>=rad; rad+= twoPI/pos ){
 			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),300);
@@ -27,5 +23,9 @@ public class Stage1{
     		object.drawLine(index,index+pos);
     		object.drawLine(index+pos,index+1+pos);
     	}
+    }
+
+    public int getNumPlayerPos(){
+    	return pos;
     }
 }
