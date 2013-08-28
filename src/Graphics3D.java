@@ -1,7 +1,7 @@
 /**
  * Graphics3D.java
  * Version 1.0
- * Copyright 5/4/2013 by John Schram
+ * Copyright 5/10/2013 by John Schram
  *
  * This version allows 3D drawings using lines, cubes, and rectangular prisms.
  * 3D Tranformations, such are rotation, scaling and translation are possible
@@ -20,7 +20,7 @@
  * Student Friendly Advanced VGA Graphics for C++ (c) 1997
  * Authored by Leon Schram
  *
- * These programs were translated into Java by Zachary Matthewson and Max Kirby in 2012.
+ * These programs were translated into Java by Zachary Mathewson and Max Kirby in 2012.
  * From these translated programs, and several of my own ideas, I created
  * a set of programs that are more in line with "Object Oriented Programming".
  * This required the creation of the <Point3D> and <Graphics3D> classes.
@@ -37,6 +37,7 @@
 
 
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 
 
@@ -90,6 +91,17 @@ class Graphics3D
 	public void drawPixel(Point3D point)
 	{
 		g.fillRect(point.getTrueX()+originX, point.getTrueY()+originY, 2, 2);
+	}
+
+	public void drawFatPixel(int userX, int userY, int userZ)
+	{
+		Point3D point = new Point3D(userX, userY, userZ);
+		drawFatPixel(point);
+	}
+
+	public void drawFatPixel(Point3D point)
+	{
+		g.fillRect(point.getTrueX()+originX, point.getTrueY()+originY, 5, 5);
 	}
 
 
@@ -386,6 +398,12 @@ class Graphics3D
 			point.scaleZ(s);
 	}
 
+
+	public void translate(double tx, double ty, double tz)
+	{
+		for (Point3D point: points)
+			point.translate(tx,ty,tz);
+	}
 
 	public void translateX(double t)
 	{

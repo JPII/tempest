@@ -1,0 +1,1 @@
+"Starting files" - rotating object in paint method

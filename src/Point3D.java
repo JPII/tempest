@@ -1,7 +1,7 @@
 /**
  * Point3D.java
  * Version 1.0
- * Copyright 5/5/2013 by John Schram
+ * Copyright 5/10/2013 by John Schram
  *
  * Objects of the <Point3D> class store all necessary information to represent
  * a point in 3D space, even if this point is translated, scaled, or rotated
@@ -12,7 +12,7 @@
  * Student Friendly Advanced VGA Graphics for C++ (c) 1997
  * Authored by Leon Schram
  *
- * These programs were translated into Java by Zachary Matthewson and Max Kirby in 2012.
+ * These programs were translated into Java by Zachary Mathewson and Max Kirby in 2012.
  * From these translated programs, and several of my own ideas, I created
  * a set of programs that are more in line with "Object Oriented Programming".
  * This required the creation of the <Point3D> and <Graphics3D> classes.
@@ -266,6 +266,13 @@ class Point3D
 		scaleAnglesAndRadii();
 	}
 
+
+	public void translate(double tx, double ty, double tz)
+	{
+		translateX = tx;
+		translateY = ty;
+		translateZ = tz;
+	}
 
 	public void translateX(double t)  {  translateX = t;  }
 	public void translateY(double t)  {  translateY = t;  }
