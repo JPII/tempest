@@ -32,7 +32,7 @@ public class Player extends Entity{
 		x = (one.getUserX() + two.getUserX()) /2;
 		y = (one.getUserY() + two.getUserY()) /2;
 
-		z = (one.getUserZ() + two.getUserZ()) /2 +100;
+		z = 400;
 
 		Graphics3D temp = new Graphics3D(g);
 

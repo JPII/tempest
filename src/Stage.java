@@ -5,8 +5,10 @@ public abstract class Stage{
 	protected final double twoPI = Math.PI * 2;
 	protected int startPos,pos;
 	protected Graphics3D object;
+	protected Graphics g;
 
 	public Stage(Graphics buffer){
+		g = buffer;
 		object = new Graphics3D(buffer);
 		pos = startPos = 0;
 	}
@@ -26,4 +28,6 @@ public abstract class Stage{
 			pos-=this.pos;
 		return object.getPoint(pos);
 	}
+
+	public abstract void nextStage();
 }

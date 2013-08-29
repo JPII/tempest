@@ -37,6 +37,9 @@ public class KeyManager{
 		else if(code == KeyEvent.VK_Z){
 			sm.fire();
 		}
+		else if(code == KeyEvent.VK_SPACE){
+			sm.nextStage();
+		}
 	}
 
 	public void tick(){

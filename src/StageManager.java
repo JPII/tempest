@@ -20,7 +20,11 @@ public class StageManager{
 			entities.get(index).drawEntity();
 		}
 	}
-
+	
+	public void nextStage(){
+		stage.nextStage();
+	}
+	
 	public void addEntity(Entity e){
 		entities.add(e);
 	}
