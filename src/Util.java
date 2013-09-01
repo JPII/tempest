@@ -16,6 +16,3 @@ public class Util
 			endDelay = System.currentTimeMillis();
 	}
 }
-
-
-
