@@ -10,15 +10,14 @@ public class Stage1 extends Stage{
 		flyOut = false;
 		flyIn = true; //300,-600
 		for (double rad = 0; twoPI>=rad; rad+= twoPI/pos ){
-			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),0);
+			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),-600);
 		}
 		for (double rad = 0; twoPI>=rad; rad+= twoPI/pos ){
-			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),-900);
+			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),-1500);
 		}
 	}
 
 	public void drawObject() {
-		
 		if(flyIn){
 			Graphics3D next = new Graphics3D(g);
 			for(int index=0; index<object.getNumPoints(); index++){
@@ -26,10 +25,10 @@ public class Stage1 extends Stage{
 				int z = temp.getUserZ()+5;
 				next.addPoint(temp.getUserX(),temp.getUserY(),z);
 			}
-		object = next;
-		if(object.getPoint(0).getUserZ()>=300){
-			flyIn = false;
-		}
+			object = next;
+			if(object.getPoint(0).getUserZ()>=300){
+				flyIn = false;
+			}
 		}
 		else if(flyOut){
 			Graphics3D next = new Graphics3D(g);
@@ -41,6 +40,8 @@ public class Stage1 extends Stage{
 					next.addPoint(temp.getUserX(),temp.getUserY(),z);
 				}
 			object = next;
+			if(object.getPoint(object.getNumPoints()-1).getUserZ()>=625)
+				stageOver = true;
 		}
 		
     	object.setColor(Color.red);

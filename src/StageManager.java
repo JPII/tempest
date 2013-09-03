@@ -31,8 +31,14 @@ public class StageManager{
 		for(int index = 0; index<entities.size(); index++){
 			entities.get(index).drawEntity();
 		}
+<<<<<<< HEAD
 		
 		drawScore();
+=======
+		if(stage.stageOver()){
+			newStage();
+		}
+>>>>>>> stages now loop
 	}
 	
 	public void nextStage(){

@@ -6,11 +6,13 @@ public abstract class Stage{
 	protected int startPos,pos;
 	protected Graphics3D object;
 	protected Graphics g;
+	protected boolean stageOver;
 
 	public Stage(Graphics buffer){
 		g = buffer;
 		object = new Graphics3D(buffer);
 		pos = startPos = 0;
+		stageOver = false;
 	}
 
 	public abstract void drawObject();
@@ -30,4 +32,7 @@ public abstract class Stage{
 	}
 
 	public abstract void nextStage();
+	public boolean stageOver(){
+		return stageOver;
+	}
 }
