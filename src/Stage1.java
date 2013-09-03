@@ -2,23 +2,36 @@ import java.awt.*;
 
 public class Stage1 extends Stage{
 	
-	boolean translateOff;
+	boolean flyOut, flyIn;
 	
 	public Stage1(Graphics g){
 		super(g);
 		pos = 12;
-		translateOff = false;
+		flyOut = false;
+		flyIn = true; //300,-600
 		for (double rad = 0; twoPI>=rad; rad+= twoPI/pos ){
-			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),300);
+			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),0);
 		}
 		for (double rad = 0; twoPI>=rad; rad+= twoPI/pos ){
-			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),-600);
+			object.addPoint((int) (100*Math.sin(rad)),(int) (100*Math.cos(rad)),-900);
 		}
 	}
 
 	public void drawObject() {
 		
-		if(translateOff){
+		if(flyIn){
+			Graphics3D next = new Graphics3D(g);
+			for(int index=0; index<object.getNumPoints(); index++){
+				Point3D temp = object.getPoint(index);
+				int z = temp.getUserZ()+5;
+				next.addPoint(temp.getUserX(),temp.getUserY(),z);
+			}
+		object = next;
+		if(object.getPoint(0).getUserZ()>=300){
+			flyIn = false;
+		}
+		}
+		else if(flyOut){
 			Graphics3D next = new Graphics3D(g);
 				for(int index=0; index<object.getNumPoints(); index++){
 					Point3D temp = object.getPoint(index);
@@ -46,6 +59,6 @@ public class Stage1 extends Stage{
     }
 
 	public void nextStage() {
-		translateOff = true;
+		flyOut = true;
 	}
 }

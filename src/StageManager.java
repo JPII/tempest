@@ -2,16 +2,26 @@ import java.awt.*;
 import java.util.*;
 
 public class StageManager{
-
+	
+	Graphics g;
 	Stage stage;
 	Player p;
 	ArrayList<Entity> entities;
 
 	public StageManager(Graphics g)	{
-		stage = new Stage1(g);
+		this.g = g;
+		newStage();
+	}
+	
+	public void newStage(){
+		stage = getNextStage();
 		entities = new ArrayList<Entity>();
 		p = new Player(g,this,stage,stage.getStartPos());
 		addEntity(p);
+	}
+	
+	public Stage getNextStage(){
+		return new Stage1(g);
 	}
 
 	public void drawStage(){
