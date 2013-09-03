@@ -12,13 +12,16 @@ public class StageManager{
 	public StageManager(Graphics g)	{
 		this.g = g;
 		score = 0;
+		stage = getNextStage();
+		entities = new ArrayList<Entity>();
+		p = new Player(g,this,stage,stage.getStartPos());
 		newStage();
 	}
 	
 	public void newStage(){
 		stage = getNextStage();
 		entities = new ArrayList<Entity>();
-		p = new Player(g,this,stage,stage.getStartPos());
+		p.newStage(stage);
 		addEntity(p);
 	}
 	
@@ -27,18 +30,14 @@ public class StageManager{
 	}
 
 	public void drawStage(){
+		drawScore();
 		stage.drawObject();
 		for(int index = 0; index<entities.size(); index++){
 			entities.get(index).drawEntity();
-		}
-<<<<<<< HEAD
-		
-		drawScore();
-=======
+		}		
 		if(stage.stageOver()){
 			newStage();
 		}
->>>>>>> stages now loop
 	}
 	
 	public void nextStage(){

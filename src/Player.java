@@ -7,6 +7,10 @@ public class Player extends Entity{
 	public Player(Graphics g,StageManager sm,Stage s,int startPos){
 		super(g,sm,s,startPos);
 	}
+	
+	public void newStage(Stage s){
+		this.s = s;
+	}
 
 	public void left(){
 		pos--;
@@ -33,6 +37,8 @@ public class Player extends Entity{
 		y = (one.getUserY() + two.getUserY()) /2;
 
 		z = (one.getUserZ() + two.getUserZ()) /2 +100;
+		if(z>400)
+			z=400;
 
 		Graphics3D temp = new Graphics3D(g);
 
