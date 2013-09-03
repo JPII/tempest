@@ -7,9 +7,11 @@ public class StageManager{
 	Stage stage;
 	Player p;
 	ArrayList<Entity> entities;
+	int score;
 
 	public StageManager(Graphics g)	{
 		this.g = g;
+		score = 0;
 		newStage();
 	}
 	
@@ -29,6 +31,8 @@ public class StageManager{
 		for(int index = 0; index<entities.size(); index++){
 			entities.get(index).drawEntity();
 		}
+		
+		drawScore();
 	}
 	
 	public void nextStage(){
@@ -53,5 +57,22 @@ public class StageManager{
 
 	public void fire(){
 		p.fire();
+	}
+	
+	public void addScore(int score) {
+		this.score += score;
+	}
+	
+	public void removeScore(int score) {
+		this.score -= score;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	private void drawScore() {
+		g.setColor(Color.GREEN);
+		g.drawString(Integer.toString(score), 5, 15);
 	}
 }
