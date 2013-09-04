@@ -38,7 +38,7 @@ public class KeyManager{
 			sm.fire();
 		}
 		else if(code == KeyEvent.VK_SPACE){
-			sm.nextStage();
+			sm.removeEntites();
 		}
 	}
 

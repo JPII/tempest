@@ -18,11 +18,19 @@ public class StageManager{
 		newStage();
 	}
 	
-	public void newStage(){
+	private void newStage(){
 		stage = getNextStage();
 		entities = new ArrayList<Entity>();
 		p.newStage(stage);
 		addEntity(p);
+		for(int index = 0; index<10; index++){
+			entities.add(new Crawler(g, this, stage, index));
+		}
+	}
+	
+	public void removeEntites(){
+		entities.removeAll(entities);
+		entities.add(p);
 	}
 	
 	public Stage getNextStage(){
@@ -38,9 +46,12 @@ public class StageManager{
 		if(stage.stageOver()){
 			newStage();
 		}
+		else if(entities.size()==1){
+			nextStage();
+		}
 	}
 	
-	public void nextStage(){
+	private void nextStage(){
 		stage.nextStage();
 	}
 	
