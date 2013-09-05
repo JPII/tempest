@@ -25,7 +25,7 @@ public class StageManager {
 		p.newStage(stage);
 		addEntity(p);
 		for (int index = 0; index < 10; index++) {
-			entities.add(new Crawler(g, this, stage, index));
+			entities.add(new Crawler(g, this, stage, index));//replace index with random value
 		}
 	}
 
@@ -99,22 +99,23 @@ public class StageManager {
 	}
 	
 	private void checkCollision() {
-		for(Entity e : entities) {
-			if(e instanceof Bullet) {
-				for(Entity e2 : entities) {
-					if(e2 instanceof Crawler) {
-						System.out.println(e.pos + " / " + e2.pos);
+		for(int index = 0; index<entities.size(); index++) {
+			Entity e = entities.get(index);
+			if(e instanceof Crawler)
+				for(int count = 0; count<entities.size(); count++) {
+					Entity e2 = entities.get(count);
+					if(e2 instanceof Bullet)
 						if(e.pos == e2.pos && didCollide(e, e2)) {
-							//removeEntity(e);
-							//removeEntity(e2);
+							removeEntity(e);
+							removeEntity(e2);
 						}
-					}
 				}
-			}
 		}
 	}
 	
 	private boolean didCollide(Entity e, Entity e2) {
-		return true;
+		if(e.z - e2.z >= 6)
+			return true;
+		return false;
 	}
 }

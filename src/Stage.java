@@ -40,4 +40,7 @@ public abstract class Stage {
 	public boolean stageOver() {
 		return stageOver;
 	}
+	
+	public abstract int getFrontZ();
+	public abstract int getBackZ();
 }

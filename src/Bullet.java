@@ -19,10 +19,8 @@ public class Bullet extends Entity {
 	}
 
 	public void drawEntity() {
-
 		z -= 5;
-
-		if (z < -600)
+		if (z < s.getBackZ())
 			sm.removeEntity(this);
 
 		Graphics3D temp = new Graphics3D(g);

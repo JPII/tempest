@@ -15,11 +15,12 @@ public class Crawler extends Entity {
 
 		x = (one.getUserX() + two.getUserX()) / 2;
 		y = (one.getUserY() + two.getUserY()) / 2;
-		z = (one.getUserZ() + two.getUserZ()) / 2 - 900;
+		z = s.getBackZ(); //maximum start location
 	}
 
 	public void drawEntity() {
-		z += 5;
+		if (z < s.getFrontZ())
+			z += 5;
 
 		Graphics3D temp = new Graphics3D(g);
 

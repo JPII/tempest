@@ -63,4 +63,12 @@ public class Stage1 extends Stage {
 	public void nextStage() {
 		flyOut = true;
 	}
+
+	public int getFrontZ() {
+		return object.getPoint(0).getUserZ();
+	}
+
+	public int getBackZ() {
+		return object.getPoint(object.getNumPoints()-1).getUserZ();
+	}
 }
