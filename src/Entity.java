@@ -1,14 +1,14 @@
 import java.awt.*;
 
-public abstract class Entity{
+public abstract class Entity {
 
 	Graphics g;
 	Graphics3D object;
 	StageManager sm;
-	int pos,x,y,z;
+	int pos, x, y, z;
 	Stage s;
 
-	public Entity(Graphics pass,StageManager s,Stage st,int startPos){
+	public Entity(Graphics pass, StageManager s, Stage st, int startPos) {
 		pos = 0;
 		g = pass;
 		object = new Graphics3D(g);
