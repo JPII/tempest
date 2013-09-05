@@ -40,6 +40,7 @@ public class StageManager {
 
 	public void drawStage() {
 		drawScore();
+		checkCollision();
 		stage.drawObject();
 		for (int index = 0; index < entities.size(); index++) {
 			entities.get(index).drawEntity();
@@ -95,5 +96,9 @@ public class StageManager {
 		String newScore = df.format(score);
 
 		g.drawString(newScore, 5, 20);
+	}
+	
+	private void checkCollision() {
+		
 	}
 }

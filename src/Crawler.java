@@ -4,9 +4,7 @@ public class Crawler extends Entity {
 
 	public Crawler(Graphics g, StageManager sm, Stage s, int startPos) {
 		super(g, sm, s, startPos);
-	}
-
-	public void drawEntity() {
+		
 		int newpos = pos;
 		while (newpos <= 0)
 			newpos += s.getNumPos();
@@ -17,8 +15,11 @@ public class Crawler extends Entity {
 
 		x = (one.getUserX() + two.getUserX()) / 2;
 		y = (one.getUserY() + two.getUserY()) / 2;
-
 		z = (one.getUserZ() + two.getUserZ()) / 2 - 900;
+	}
+
+	public void drawEntity() {
+		z += 5;
 
 		Graphics3D temp = new Graphics3D(g);
 
