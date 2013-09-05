@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class StageManager{
@@ -89,6 +90,11 @@ public class StageManager{
 	
 	private void drawScore() {
 		g.setColor(Color.GREEN);
-		g.drawString(Integer.toString(score), 5, 15);
+		g.setFont(new Font("Dialog", Font.PLAIN, 20));
+		
+		DecimalFormat df = new DecimalFormat("00000000");
+		String newScore = df.format(score);
+		
+		g.drawString(newScore, 5, 20);
 	}
 }
