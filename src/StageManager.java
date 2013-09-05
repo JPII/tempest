@@ -99,6 +99,22 @@ public class StageManager {
 	}
 	
 	private void checkCollision() {
-		
+		for(Entity e : entities) {
+			if(e instanceof Bullet) {
+				for(Entity e2 : entities) {
+					if(e2 instanceof Crawler) {
+						System.out.println(e.pos + " / " + e2.pos);
+						if(e.pos == e2.pos && didCollide(e, e2)) {
+							//removeEntity(e);
+							//removeEntity(e2);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private boolean didCollide(Entity e, Entity e2) {
+		return true;
 	}
 }
