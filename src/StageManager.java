@@ -47,9 +47,17 @@ public class StageManager {
 		}
 		if (stage.stageOver()) {
 			newStage();
-		} else if (entities.size() == 1) {
+		} else if (noEntities()) {
 			nextStage();
 		}
+	}
+	
+	private boolean noEntities(){
+		for(int index=0; index<entities.size(); index++){
+			if((entities.get(index)instanceof Crawler))
+				return false;
+		}
+		return true;
 	}
 
 	private void nextStage() {
