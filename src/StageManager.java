@@ -24,8 +24,8 @@ public class StageManager {
 		entities = new ArrayList<Entity>();
 		p.newStage(stage);
 		addEntity(p);
-		for (int index = 0; index < 10; index++) {
-			entities.add(new Crawler(g, this, stage, index));//replace index with random value
+		for (int index = 0; index < 20; index++) {
+			entities.add(new Crawler(g, this, stage, (int) (index*Math.random())));
 		}
 	}
 

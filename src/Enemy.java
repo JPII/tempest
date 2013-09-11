@@ -5,18 +5,13 @@ public class Enemy extends Entity {
 
 	public Enemy(Graphics g, StageManager sm, Stage s, int startPos) {
 		super(g, sm, s, startPos);
-		
-		int newpos = pos;
-		while (newpos <= 0)
-			newpos += s.getNumPos();
-		newpos %= s.getNumPos();
 
-		Point3D one = s.getPos(newpos);
-		Point3D two = s.getPos(newpos + 1);
+		Point3D one = s.getPos(pos);
+		Point3D two = s.getPos(pos + 1);
 
 		x = (one.getUserX() + two.getUserX()) / 2;
 		y = (one.getUserY() + two.getUserY()) / 2;
-		z = s.getBackZ(); //maximum start location
+		z = (int) (s.getBackZ() - (2000.0*Math.random()));
 	}
 
 	public void drawEntity() {

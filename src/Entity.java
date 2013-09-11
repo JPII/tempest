@@ -14,6 +14,9 @@ public abstract class Entity {
 		object = new Graphics3D(g);
 		sm = s;
 		pos = startPos;
+		while (pos <= 0)
+			pos += st.getNumPos();
+		pos %= st.getNumPos();
 		this.s = st;
 	}
 
