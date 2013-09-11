@@ -29,11 +29,6 @@ public class StageManager {
 		}
 	}
 
-	public void removeEntites() {
-		entities.removeAll(entities);
-		entities.add(p);
-	}
-
 	public Stage getNextStage() {
 		return new Stage1(g);
 	}

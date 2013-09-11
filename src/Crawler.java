@@ -1,26 +1,16 @@
 import java.awt.*;
 
-public class Crawler extends Entity {
+public class Crawler extends Enemy {
 
 	public Crawler(Graphics g, StageManager sm, Stage s, int startPos) {
 		super(g, sm, s, startPos);
 		
-		int newpos = pos;
-		while (newpos <= 0)
-			newpos += s.getNumPos();
-		newpos %= s.getNumPos();
-
-		Point3D one = s.getPos(newpos);
-		Point3D two = s.getPos(newpos + 1);
-
-		x = (one.getUserX() + two.getUserX()) / 2;
-		y = (one.getUserY() + two.getUserY()) / 2;
-		z = s.getBackZ(); //maximum start location
+		z -= (2000*Math.random()); //maximum start location
 	}
 
 	public void drawEntity() {
 		if (z < s.getFrontZ())
-			z += 5;
+			z += 3;
 
 		Graphics3D temp = new Graphics3D(g);
 
