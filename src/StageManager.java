@@ -109,6 +109,7 @@ public class StageManager {
 					Entity e2 = entities.get(count);
 					if(e2 instanceof Bullet)
 						if(e.pos == e2.pos && didCollide(e, e2)) {
+							addScore(500);
 							removeEntity(e);
 							removeEntity(e2);
 						}
