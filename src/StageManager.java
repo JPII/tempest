@@ -107,7 +107,11 @@ public class StageManager {
 			if(e instanceof Crawler)
 				for(int count = 0; count<entities.size(); count++) {
 					Entity e2 = entities.get(count);
-					if(e2 instanceof Bullet)
+					if(e2 instanceof Player){
+						if(e.pos == e2.pos && e.z>=stage.getFrontZ())
+							System.out.println("Game Over");
+					}
+					else if(e2 instanceof Bullet)
 						if(e.pos == e2.pos && didCollide(e, e2)) {
 							addScore(500);
 							removeEntity(e);

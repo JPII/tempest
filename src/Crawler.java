@@ -31,7 +31,7 @@ public class Crawler extends Enemy {
 
 	public void drawEntity() {
 		if (z < s.getFrontZ())
-			z += 5;
+			z += 4;
 		else{
 			rotateCount++;
 			if(rotateCount>15){
